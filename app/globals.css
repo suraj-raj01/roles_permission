@@ -24,3 +24,32 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+#vendor-nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  background-color: #11222c;
+  color: white;
+  font-size: 25px;
+}
+
+#vendor-main{
+  display: flex;
+}
+#vendordashboard{
+  height: 85vh;
+  width: 280px;
+  background-color: #11222c;
+}
+#vendordashboard a{
+  width: 300px;
+  color: white;
+  padding: 0px 20px;
+  margin-top: 10px;
+  text-decoration: none;
+}
+#cancelbtn{
+  display: none;
+}
