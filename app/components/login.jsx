@@ -13,7 +13,7 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let apiUrl = "http://localhost:3000/api/login";
+    let apiUrl = "/api/login";
     let options = {
       method: "POST",
       headers: {

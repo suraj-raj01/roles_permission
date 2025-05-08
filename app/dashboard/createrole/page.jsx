@@ -11,7 +11,7 @@ const Page = () => {
     const data = { role }
 
     try {
-      const res = await fetch('http://localhost:3000/api/roles', {
+      const res = await fetch('/api/roles', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -7,7 +7,7 @@ const page = () => {
 
     const loadRoles = async () => {
         try {
-            const res = await fetch('http://localhost:3000/api/roles', {
+            const res = await fetch('/api/roles', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ const page = () => {
         const data = { roleId, permission }
         console.log(data)
         try {
-            const res = await fetch('http://localhost:3000/api/managepermission', {
+            const res = await fetch('/api/managepermission', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

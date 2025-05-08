@@ -9,7 +9,7 @@ const Page = () => {
 
     const loadRoles = async () => {
         try {
-            const res = await fetch('http://localhost:3000/api/assignrole');
+            const res = await fetch('/api/assignrole');
             if (!res.ok) throw new Error('Failed to load roles');
             const data = await res.json();
             console.log(data);
@@ -26,7 +26,7 @@ const Page = () => {
 
     const loadUsers = async () => {
         try {
-            const res = await fetch('http://localhost:3000/api/roles/getroles');
+            const res = await fetch('/api/roles/getroles');
             if (!res.ok) throw new Error('Failed to load roles');
             const data = await res.json();
             setRoles(data);
@@ -46,7 +46,7 @@ const Page = () => {
         };
 
         try {
-            const res = fetch('http://localhost:3000/api/assignrole', {
+            const res = fetch('/api/assignrole', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
