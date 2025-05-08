@@ -36,7 +36,7 @@ export default function Home() {
         console.log(data);
         setUser(data);
         alert("Login successful");
-        if(data.message === "Login successful") {
+        if (data.message === "Login successful") {
           router.push("/dashboard");
         }
       })
@@ -47,43 +47,42 @@ export default function Home() {
 
   return (
     <>
-      <h1>Roles And Permissions</h1>
+      <h1 className="font-bold text-xl text-center mt-10">Roles And Permissions</h1>
       <form
         onSubmit={handleSubmit}
-        className="w-1/3 mx-auto shadow-2xl mt-5 flex flex-col p-5"
+        className="w-full max-w-md mx-auto shadow-2xl mt-15 flex flex-col p-6 bg-white rounded-md"
       >
-        <label htmlFor="role" className="font-bold text-center text-2xl">Login</label>
-        
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="role" className="font-bold text-center text-3xl mb-6">Login</label>
+
+        <label htmlFor="email" className="mb-1 font-medium">Email:</label>
         <input
           value={user.email}
           onChange={handleInput}
-          className="p-2 border-1"
+          className="p-3 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
           type="email"
           id="email"
           name="email"
         />
-        <br />
-        
-        <label htmlFor="password">Password:</label>
+
+        <label htmlFor="password" className="mb-1 font-medium">Password:</label>
         <input
           value={user.password}
           onChange={handleInput}
-          className="p-2 border-1"
+          className="p-3 border border-gray-300 rounded mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
           type="password"
           id="password"
           name="password"
         />
-        
+
         <input
           type="submit"
           value="Login"
-          className="bg-blue-500 text-white p-2 mt-5"
+          className="bg-blue-600 text-white p-3 rounded hover:bg-blue-700 transition-colors"
         />
-        <br />
       </form>
+
     </>
   );
 }

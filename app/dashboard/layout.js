@@ -8,8 +8,9 @@ import { RiInsertColumnRight } from "react-icons/ri";
 import { FaDisplay } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { useRouter } from "next/navigation";
 export default function VendorLayout({ children }) {
-
+    
     const sidebar=()=>{
      document.getElementById("vendordashboard").style.display='block'
      document.getElementById("menu").style.display='none'
@@ -22,6 +23,12 @@ export default function VendorLayout({ children }) {
         document.getElementById("cancelbtn").style.display='none'
     }
 
+    const router = useRouter();
+
+    const logout=()=>{
+        router.push('/');
+    }
+
     return <main>
         <header id="vendor-nav">
         <div className="flex items-center content-center gap-3">
@@ -29,7 +36,7 @@ export default function VendorLayout({ children }) {
         SUPER ADMIN DASHBOARD
         </div>
         <div>
-        <FaRegCircleUser />
+        <FaRegCircleUser onClick={logout}/>
         </div>
         </header>
         <div id="vendor-main">
