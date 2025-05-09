@@ -64,6 +64,7 @@ const page = () => {
                 <th className="p-3 text-left">Manage Vendor</th>
                 <th className="p-3 text-left">Manage Product</th>
                 <th className="p-3 text-left">Manage Users</th>
+                <th className="p-3 text-left">See Products</th>
               </tr>
             </thead>
             <tbody>
@@ -74,18 +75,24 @@ const page = () => {
                     <td className="p-3">
                       <input
                         type="checkbox"
+                        value="ManageAdmin"
+                        defaultChecked={role.permissions.includes("ManageAdmin")}
                         onChange={() => setPermissions(role.id, "ManageAdmin")}
                       />
                     </td>
                     <td className="p-3">
                       <input
                         type="checkbox"
+                        value="ManageVendor"
+                        defaultChecked={role.permissions.includes("ManageVendor")}
                         onChange={() => setPermissions(role.id, "ManageVendor")}
                       />
                     </td>
                     <td className="p-3">
                       <input
                         type="checkbox"
+                        value="ManageProduct"
+                        defaultChecked={role.permissions.includes("ManageProduct")}
                         onChange={() =>
                           setPermissions(role.id, "ManageProduct")
                         }
@@ -94,7 +101,17 @@ const page = () => {
                     <td className="p-3">
                       <input
                         type="checkbox"
+                        value="ManageUsers"
+                        defaultChecked={role.permissions.includes("ManageUsers")}
                         onChange={() => setPermissions(role.id, "ManageUsers")}
+                      />
+                    </td>
+                    <td className="p-3">
+                      <input
+                        type="checkbox"
+                        value="seeproducts"
+                        defaultChecked={role.permissions.includes("seeproducts")}
+                        onChange={() => setPermissions(role.id, "seeproducts")}
                       />
                     </td>
                   </tr>
@@ -102,7 +119,7 @@ const page = () => {
             </tbody>
             <tfoot>
               <tr className="bg-gray-200 text-gray-700">
-                <td className="p-3" colSpan="5">
+                <td className="p-3" colSpan="6">
                   Total Roles: {roles ? roles.length : 0}
                 </td>
               </tr>

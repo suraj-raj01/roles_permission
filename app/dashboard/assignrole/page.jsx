@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
 const Page = () => {
   const [roles, setRoles] = useState([]);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [assignedRole, setAssignedRoles] = useState([]);
 
   const loadRoles = async () => {
     try {
@@ -38,6 +38,22 @@ const Page = () => {
     }
   };
 
+  const assignedRoles = async () => {
+    try {
+      const res = await fetch("/api/assignedrole");
+      if (!res.ok) throw new Error("Failed to load roles");
+      const data = await res.json();
+      console.log(data);
+      const filterData = data.filter((item) => item.roleId);
+      setAssignedRoles(filterData);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to fetch roles");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleChange = (userId, role) => {
     const data = {
       roleId: role,
@@ -60,7 +76,7 @@ const Page = () => {
   useEffect(() => {
     loadRoles();
     loadUsers();
-    handleChange();
+    assignedRoles();
   }, []);
 
   return (
@@ -106,7 +122,7 @@ const Page = () => {
           </div>
         )}
 
-        <div className="mt-10">
+        {/* <div className="mt-10">
           <h2 className="text-2xl font-bold mb-4 text-center sm:text-left">
             Assigned Roles
           </h2>
@@ -121,7 +137,7 @@ const Page = () => {
                 </tr>
               </thead>
               <tbody>
-                {users.map((role) => (
+                {assignedRole.map((role) => (
                   <tr key={role.id} className="border-t hover:bg-gray-50">
                     <td className="px-6 py-4">{role.name}</td>
                     <td className="px-6 py-4">{role.email}</td>
@@ -131,7 +147,7 @@ const Page = () => {
               </tbody>
             </table>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

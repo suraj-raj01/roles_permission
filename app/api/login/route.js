@@ -7,6 +7,9 @@ export async function POST(request) {
         where: {
         email: email,
         },
+        include: {
+        role: true,
+        },
     });
     console.log(user);
     if (!user) {
@@ -19,7 +22,7 @@ export async function POST(request) {
         status: 401,
         });
     }
-    return new Response(JSON.stringify({ message: "Login successful" }), {
+    return new Response(JSON.stringify({ message: "Login successful",user}), {
         status: 200,
     });
 }

@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@casl/ability": "^6.7.3",
+    "@casl/react": "^5.0.0",
     "@prisma/client": "^6.7.0",
     "axios": "^1.9.0",
     "dotenv": "^16.5.0",

@@ -33,10 +33,10 @@ export default function Home() {
         }
       })
       .then((data) => {
-        console.log(data);
         setUser(data);
         alert("Login successful");
         if (data.message === "Login successful") {
+          localStorage.setItem("user", JSON.stringify(data));
           router.push("/dashboard");
         }
       })
